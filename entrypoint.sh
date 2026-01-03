@@ -5,6 +5,8 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
+cd "/github/workspace"
+
 IDEA_URL=$1
 IDEA_DIR="/github/workflow/idea-cache"
 mkdir -p "$IDEA_DIR"
