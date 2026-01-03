@@ -32,15 +32,15 @@ if [[ "$(git diff --shortstat)" != "" ]]; then
 fi
 
 git diff --name-only -z | while IFS= read -r -d '' file; do
-  echo "## `$file`" >> $GITHUB_STEP_SUMMARY
+  echo "## \`$file\`" >> $GITHUB_STEP_SUMMARY
   echo "" >> $GITHUB_STEP_SUMMARY
-  echo "```diff" >> $GITHUB_STEP_SUMMARY
+  echo "\`\`\`diff" >> $GITHUB_STEP_SUMMARY
   git --no-pager diff "$file" >> $GITHUB_STEP_SUMMARY
-  echo "```" >> $GITHUB_STEP_SUMMARY
+  echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
   echo "" >> $GITHUB_STEP_SUMMARY
 done
 
-if [[ "$changed" == "yes" ]]; do
+if [[ "$changed" == "yes" ]]; then
   echo "::error::Style Checks failed"
   exit 1
 fi
