@@ -23,10 +23,10 @@ version=$("$IDEA_DIR/bin/idea.sh" --version 2>/dev/null || true)
 echo "Running:"
 echo "$version"
 
-files=$(find ./src -type f -name "*.java")
-echo "Checking files:" $files
+echo "Formatting..."
 
-"$IDEA_DIR/bin/format.sh" -m "$files" -s "./style/IntelliJ IDEA.xml" -r .
+files=$(find ./src -type f -name "*.java" | paste -sd,)
+"$IDEA_DIR/bin/format.sh" -m "$files" -s "./style/IntelliJ IDEA.xml" -r . 2>
 
 echo "Finished"
 git --no-pager diff --exit-code
