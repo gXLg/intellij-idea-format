@@ -6,10 +6,10 @@ if [[ $# -ne 1 ]]; then
 fi
 
 git config --global --add safe.directory /github/workspace
-cd "/github/workspace"
+cd /github/workspace
 
 IDEA_URL=$1
-IDEA_DIR="/github/workflow/idea-cache"
+IDEA_DIR=".idea-cache"
 mkdir -p "$IDEA_DIR"
 
 if [[ ! -d "$IDEA_DIR/bin" ]]; then

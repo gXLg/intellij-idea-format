@@ -19,7 +19,7 @@ Check code formatting using IntelliJ IDEA in GitHub Actions
 - name: Cache IntelliJ IDEA
   uses: actions/cache@v5
   with:
-    path: /github/workflow/idea-cache
+    path: .idea-cache
     key: idea-cache-2025-3
 
 - name: Format with IntelliJ IDEA
