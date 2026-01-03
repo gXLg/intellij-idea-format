@@ -25,10 +25,14 @@ echo "Finished"
 
 if [[ "$(git diff --shortstat)" != "" ]]; then
   changed=yes
-  echo "# Style Checks failed" >> $GITHUB_STEP_SUMMARY
+  echo "# Style checks failed! :x:" >> $GITHUB_STEP_SUMMARY
   echo "" >> $GITHUB_STEP_SUMMARY
   echo "Here are reformatted files:" >> $GITHUB_STEP_SUMMARY
   echo "" >> $GITHUB_STEP_SUMMARY
+else
+  echo "# Style checks passed! :white_check_mark:" >> $GITHUB_STEP_SUMMARY
+  echo "" >> $GITHUB_STEP_SUMMARY
+  exit 0
 fi
 
 git diff --name-only -z | while IFS= read -r -d '' file; do
