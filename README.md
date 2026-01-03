@@ -27,3 +27,5 @@ Check code formatting using IntelliJ IDEA in GitHub Actions
   with:
     idea-url: "https://download.jetbrains.com/idea/idea-2025.3.tar.gz"
 ```
+
+Export style to `project/style/IntelliJ_IDEA.xml`

@@ -21,7 +21,7 @@ fi
 
 echo "Formatting..."
 files=$(find ./src -type f -name "*.java" | paste -sd,)
-"$IDEA_DIR/bin/idea.sh" format -m "$files" -s "./style/IntelliJ IDEA.xml" -r . #2>/dev/null
+"$IDEA_DIR/bin/idea.sh" format -m "$files" -s "./style/IntelliJ_IDEA.xml" -r . #2>/dev/null
 echo "Finished"
 
 git --no-pager diff --exit-code
