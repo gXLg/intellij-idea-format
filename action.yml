@@ -1,14 +1,6 @@
 name: IntelliJ IDEA Format
 description: Format code with IntelliJ IDEA
 
-inputs:
-  idea-url:
-    description: URL to download IntelliJ IDEA from
-    required: false
-    default: "https://download.jetbrains.com/idea/idea-2025.3.tar.gz"
-
 runs:
   using: docker
   image: Dockerfile
-  args:
-    - ${{ inputs.idea-url }}
