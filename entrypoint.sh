@@ -19,16 +19,11 @@ if [[ ! -d "$IDEA_DIR/bin" ]]; then
   rm /tmp/idea.tar.gz
 fi
 
-version=$("$IDEA_DIR/bin/idea.sh" --version 2>/dev/null || true)
-echo "Running:"
-echo "$version"
-
 echo "Formatting..."
-
 files=$(find ./src -type f -name "*.java" | paste -sd,)
-"$IDEA_DIR/bin/format.sh" -m "$files" -s "./style/IntelliJ IDEA.xml" -r . 2>/dev/null
-
+"$IDEA_DIR/bin/idea.sh" format -m "$files" -s "./style/IntelliJ IDEA.xml" -r . #2>/dev/null
 echo "Finished"
+
 git --no-pager diff --exit-code
 if [[ "$?" != "0" ]]; then
   echo "Style Checks failed"
