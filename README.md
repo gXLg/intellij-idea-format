@@ -20,10 +20,10 @@ Check code formatting using IntelliJ IDEA in GitHub Actions
   uses: actions/cache@v5
   with:
     path: .idea-cache
-    key: idea-cache
+    key: idea-cache-2025.3.0
 
 - name: Format with IntelliJ IDEA
   uses: gXLg/intellij-idea-format@<SHA1 reference>
+  with:
+    idea-url: "https://download.jetbrains.com/idea/idea-2025.3.tar.gz"
 ```
-
-Uses `IntelliJ IDEA 2025.2.6 Community Edition`
